@@ -51,7 +51,7 @@ for linenum,line in enumerate(input_stream,1):
             state = 'done'
         else:
             re_notmatches.append(line.lstrip())
-    
+
     if state == 'done':
         ret = subprocess.run([RE_PROGRAM, '-r', 'pcre', '-l', 'tree', re_pattern], capture_output=True)
         parsed = (ret.returncode == 0)
